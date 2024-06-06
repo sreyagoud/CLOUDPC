@@ -16,15 +16,15 @@ jobs:
 
     - name: Download
 
-      run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
+      run: Invoke-WebRequest -Uri https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip -OutFile ngrok-v3-stable-windows-amd64.zip
 
     - name: Extract
 
-      run: Expand-Archive ngrok.zip
+      run: Expand-Archive .\ngrok-v3-stable-windows-amd64.zip -DestinationPath .\
 
     - name: Auth
 
-      run: .\ngrok\ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
+      run: .\ngrok-v3-stable-windows-amd64\ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
 
       env:
 
